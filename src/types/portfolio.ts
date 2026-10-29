@@ -74,7 +74,7 @@ export interface FeaturedProject {
   slug: string;
   title: string;
   tagline: string;
-  status: "Live in Production" | "In Development";
+  status: "Live in Production" | "In Development" | string;
   problemStatement: string;
   solutionSummary: string;
   githubUrl: string;

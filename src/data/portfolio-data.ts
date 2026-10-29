@@ -311,6 +311,83 @@ export const EXPERIENCE_ROLES: ExperienceRole[] = [
 
 export const FEATURED_PROJECTS: FeaturedProject[] = [
   {
+    id: "project-distributed-report-engine",
+    slug: "distributed-report-engine",
+    title: "Distributed Report Generation Engine",
+    tagline: "Asynchronous, Event-Driven Backend & Distributed Data Processing System",
+    status: "Local End-to-End Workflow Implemented",
+    problemStatement:
+      "Generating heavy merchant reports inside an HTTP request creates tight coupling, slow response timeouts, and difficult recovery when processes fail mid-computation.",
+    solutionSummary:
+      "An event-driven backend system that decouples request submission from processing via a PostgreSQL transactional outbox, Kafka event bus, and Scala/Spark worker execution—producing dual Parquet and CSV outputs with fenced leases and crash recovery.",
+    githubUrl: "https://github.com/Harshs0891/distributed-report-engine",
+    technologies: [
+      "Scala",
+      "Apache Spark",
+      "Apache Kafka",
+      "PostgreSQL",
+      "FastAPI",
+      "Python",
+      "Docker Compose",
+      "Maven",
+    ],
+    keyFeatures: [
+      {
+        title: "Transactional Outbox Pattern",
+        description:
+          "Writes report requests and outbound Kafka events in a single PostgreSQL transaction, publishing messages asynchronously with publisher claims and retries.",
+        techUsed: "FastAPI · PostgreSQL · Kafka",
+      },
+      {
+        title: "Scala & Spark Data Processing",
+        description:
+          "Filters and aggregates merchant transaction datasets across date ranges, computing accurate summary totals and transaction counts.",
+        techUsed: "Scala 2.12 · Apache Spark 3.5",
+      },
+      {
+        title: "Dual-Format Report Output",
+        description:
+          "Generates both Parquet (for analytics storage) and CSV report artifacts with atomic _SUCCESS markers to prevent partial reads.",
+        techUsed: "Parquet · CSV · File System",
+      },
+      {
+        title: "Fenced Leases & Crash Recovery",
+        description:
+          "Guards execution attempts with unique tokens, tracks worker heartbeats, and uses _SUCCESS markers to reconcile or safely retry expired jobs.",
+        techUsed: "Execution Tokens · Lease Recovery",
+      },
+    ],
+    architectureNodes: [
+      {
+        id: "node-api",
+        layer: "01 · API & TRANSACTIONAL OUTBOX",
+        title: "FastAPI & PostgreSQL Job Persistence",
+        subtitle: "Request Validation & Outbox Atomicity",
+        technologies: ["FastAPI", "Pydantic", "PostgreSQL"],
+        description:
+          "Validates incoming POST /reports payloads, enforces request-level idempotency, and persists jobs and outbox events in a single transaction.",
+      },
+      {
+        id: "node-broker",
+        layer: "02 · ASYNCHRONOUS EVENT TRANSPORT",
+        title: "Apache Kafka Event Broker",
+        subtitle: "Reliable Work Distribution",
+        technologies: ["Apache Kafka 4.0.1", "Scala Consumer"],
+        description:
+          "Publishes report requests via outbox worker claims and streams events to the Scala consumer with offset commit management.",
+      },
+      {
+        id: "node-worker",
+        layer: "03 · SCALA / SPARK WORKER & STORAGE",
+        title: "Apache Spark Processing Engine",
+        subtitle: "Aggregation & Parquet/CSV Artifact Generation",
+        technologies: ["Scala", "Apache Spark 3.5", "Parquet + CSV"],
+        description:
+          "Reads raw transactions, filters by merchant and date range, computes summaries, and writes dual Parquet and CSV outputs with lease tracking.",
+      },
+    ],
+  },
+  {
     id: "project-edugenius",
     slug: "edugenius",
     title: "EduGenius",

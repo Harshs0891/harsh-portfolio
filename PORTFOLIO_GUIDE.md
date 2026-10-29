@@ -16,6 +16,7 @@ This document tracks all implemented features, architectural decisions, design t
   - 3 strictly scoped PayPal Impact Workloads (MSR Query Optimization, TRR Spark/Scala Migration, BigQuery On-Demand Batching POC).
   - Unified PayPal Career Progression (Software Engineer + Software Engineering Intern).
   - EduGenius Featured Product data with live Vercel URL (`https://edu-genius-rouge.vercel.app/`) and GitHub repository (`https://github.com/Harshs0891/EduGenius`).
+  - - [x] **Distributed Report Generation Engine Integration**: Added a second major project showcase featuring an event-driven Kafka/Spark backend with a transactional outbox, interactive 3-tier architecture schematic, and link to `https://github.com/Harshs0891/distributed-report-engine`.
   - 6-category Technical Skills Matrix with production cross-referencing (`usedIn`).
   - Algorithmic Pedigree (1200+ problems), National Honors (Flipkart Grid 5.0 Finalist, Amazon ML Summer School 2024), and IIIT Lucknow Education (8.87 CGPA).
 - [x] **Interactive System Architecture Component (`src/components/ui/EduGeniusArchitectureFlow.tsx`)**: 3-tier interactive flow schematic (`Presentation Layer` -> `AI Orchestration Layer` -> `Persistence & PDF Export Layer`).
