@@ -398,6 +398,7 @@ export const FEATURED_PROJECTS: FeaturedProject[] = [
     solutionSummary:
       "A modular monolith personal finance platform pairing a React/TypeScript frontend with a FastAPI backend and PostgreSQL source of truth, integrating Google Gemini to safely help users explore and analyze their financial activity without handling raw database mutations.",
     githubUrl: "https://github.com/Harshs0891/SpendWise-AI",
+    liveUrl: "https://spend-wise-ai-iota.vercel.app/",
     technologies: [
       "React",
       "TypeScript",
