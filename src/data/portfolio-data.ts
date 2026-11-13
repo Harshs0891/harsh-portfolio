@@ -107,7 +107,7 @@ export const IMPACT_WORKLOADS: ImpactWorkload[] = [
     },
     afterState: {
       label: "Optimized Execution (Join & Window Elimination)",
-      relativePercent: 1.5, // Visual floor so the bar remains visible
+      relativePercent: 1.5,
       displayValue: "0.12% Bytes Billed (-99.88%)",
     },
     technicalMechanism:
@@ -388,6 +388,78 @@ export const FEATURED_PROJECTS: FeaturedProject[] = [
     ],
   },
   {
+    id: "project-spendwise-ai",
+    slug: "spendwise-ai",
+    title: "SpendWise AI",
+    tagline: "AI-Powered Personal Finance Management Platform",
+    status: "Active Development",
+    problemStatement:
+      "Managing personal finance across fragmented tools lacks unified cash-flow intelligence, while mixing deterministic financial calculations with unpredictable LLMs risks data corruption.",
+    solutionSummary:
+      "A modular monolith personal finance platform pairing a React/TypeScript frontend with a FastAPI backend and PostgreSQL source of truth, integrating Google Gemini to safely help users explore and analyze their financial activity without handling raw database mutations.",
+    githubUrl: "https://github.com/Harshs0891/SpendWise-AI",
+    technologies: [
+      "React",
+      "TypeScript",
+      "FastAPI",
+      "Python",
+      "PostgreSQL",
+      "SQLAlchemy",
+      "Alembic",
+      "Tailwind CSS",
+      "Google Gemini API",
+    ],
+    keyFeatures: [
+      {
+        title: "Deterministic Financial Engine",
+        description:
+          "PostgreSQL-backed accounting with secure JWT authentication, multi-type financial accounts, transaction ledgers, atomic account transfers, and category budgeting.",
+        techUsed: "FastAPI · PostgreSQL · SQLAlchemy",
+      },
+      {
+        title: "SpendWise AI Assistant",
+        description:
+          "Integrates Google Gemini via the Google Gen AI SDK to provide natural-language finance chat, spending insights, and smart budget recommendations.",
+        techUsed: "Google Gemini API · Python SDK",
+      },
+      {
+        title: "CSV Import/Export & Analytics",
+        description:
+          "Enables bulk transaction management through secure CSV import/export with row-level validation, paired with Recharts dashboard cash-flow visualization.",
+        techUsed: "React · Recharts · Pydantic",
+      },
+    ],
+    architectureNodes: [
+      {
+        id: "node-fe",
+        layer: "01 · FRONTEND PRESENTATION",
+        title: "React 19 & TypeScript SPA",
+        subtitle: "Vite, Tailwind CSS & TanStack Query",
+        technologies: ["React", "TypeScript", "Tailwind CSS", "Vite"],
+        description:
+          "Provides protected dashboards, account management, transaction logs, budget progress views, and an interactive AI chat interface.",
+      },
+      {
+        id: "node-be",
+        layer: "02 · MODULAR MONOLITH BACKEND",
+        title: "FastAPI REST API & Services",
+        subtitle: "Authentication, Business Logic & AI Integration",
+        technologies: ["FastAPI", "SQLAlchemy", "Alembic", "Google Gen AI"],
+        description:
+          "Enforces ownership scopes, executes strict financial calculations, manages database migrations, and orchestrates Gemini SDK requests.",
+      },
+      {
+        id: "node-db",
+        layer: "03 · PERSISTENCE LAYER",
+        title: "PostgreSQL 16 Database",
+        subtitle: "Relational Source of Truth",
+        technologies: ["PostgreSQL", "Decimal Precision"],
+        description:
+          "Stores user accounts, ledger transactions, categories, budgets, and AI conversation history with robust relational constraints.",
+      },
+    ],
+  },
+  {
     id: "project-edugenius",
     slug: "edugenius",
     title: "EduGenius",
@@ -477,7 +549,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
       { name: "Scala", usedIn: ["PayPal SWE", "PayPal Intern (Spark/Argo)"] },
       { name: "Python", usedIn: ["PayPal SWE", "PayPal Intern", "AI/ML"] },
       { name: "C++", usedIn: ["1200+ CP Problems", "DSA"] },
-      { name: "TypeScript", usedIn: ["EduGenius"] },
+      { name: "TypeScript", usedIn: ["EduGenius", "SpendWise AI"] },
       { name: "JavaScript", usedIn: ["EduGenius", "Web Stack"] },
       { name: "SQL", usedIn: ["PayPal BigQuery Optimization", "PostgreSQL"] },
     ],
@@ -491,6 +563,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
       { name: "Google Cloud Bigtable", usedIn: ["PayPal SWE (Thread-Safe Client Manager)"] },
       { name: "Google BigQuery", usedIn: ["PayPal SWE (99.88% Bytes & 35% Slot Optimization)"] },
       { name: "Google Cloud DataProc", usedIn: ["PayPal Intern"] },
+      { name: "FastAPI", usedIn: ["SpendWise AI", "Distributed Report Engine"] },
       { name: "Django", usedIn: ["Backend Python Services"] },
       { name: "Flask", usedIn: ["Lightweight APIs"] },
     ],
@@ -500,12 +573,12 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
     title: "Frontend & Full-Stack Engineering",
     description: "Modern component architectures, server-rendered React, and type-safe ORM integration.",
     skills: [
+      { name: "React.js", usedIn: ["SpendWise AI", "EduGenius", "Portfolio"] },
       { name: "Next.js", usedIn: ["EduGenius", "Portfolio"] },
-      { name: "React.js", usedIn: ["EduGenius", "Portfolio"] },
-      { name: "Tailwind CSS", usedIn: ["EduGenius", "Portfolio"] },
+      { name: "Tailwind CSS", usedIn: ["SpendWise AI", "EduGenius", "Portfolio"] },
       { name: "Drizzle ORM", usedIn: ["EduGenius"] },
+      { name: "SQLAlchemy", usedIn: ["SpendWise AI"] },
       { name: "Streamlit", usedIn: ["EduGenius"] },
-      { name: "HTML5 & CSS3", usedIn: ["Core Web"] },
     ],
   },
   {
@@ -513,7 +586,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
     title: "Databases & Storage Engines",
     description: "Relational OLTP databases, wide-column NoSQL stores, and serverless cloud data warehouses.",
     skills: [
-      { name: "PostgreSQL", usedIn: ["EduGenius"] },
+      { name: "PostgreSQL", usedIn: ["SpendWise AI", "Distributed Report Engine", "EduGenius"] },
       { name: "MySQL", usedIn: ["Relational Data Modeling"] },
       { name: "Google BigQuery", usedIn: ["PayPal Production Analytics"] },
       { name: "Google Cloud Bigtable", usedIn: ["PayPal Low-Latency Storage"] },
@@ -526,6 +599,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
     skills: [
       { name: "Google Cloud Platform (GCP)", usedIn: ["PayPal SWE & Intern"] },
       { name: "Git & GitHub", usedIn: ["Version Control & Governance"] },
+      { name: "Docker Compose", usedIn: ["Distributed Report Engine", "SpendWise AI"] },
       { name: "Jenkins", usedIn: ["PayPal CI/CD Pipelines"] },
       { name: "Maven", usedIn: ["PayPal Java/Scala Build"] },
       { name: "JUnit & ScalaTest", usedIn: ["PayPal Automated Testing"] },
@@ -538,8 +612,8 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
     title: "AI Engineering & Developer Workflow",
     description: "LLM API orchestration, structured generation, and AI-augmented software engineering.",
     skills: [
-      { name: "Google Gemini API", usedIn: ["EduGenius Adaptive Generation"] },
-      { name: "LLM API Integration", usedIn: ["EduGenius"] },
+      { name: "Google Gemini API", usedIn: ["SpendWise AI Assistant", "EduGenius Adaptive Generation"] },
+      { name: "LLM API Integration", usedIn: ["SpendWise AI", "EduGenius"] },
       { name: "Claude Code", usedIn: ["AI-Augmented Engineering"] },
       { name: "GitHub Copilot", usedIn: ["Developer Workflow"] },
     ],
