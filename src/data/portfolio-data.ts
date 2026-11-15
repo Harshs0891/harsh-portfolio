@@ -13,7 +13,7 @@ export const PROFILE_DATA = {
   organization: "PayPal",
   location: "Bengaluru, Karnataka, India",
   email: "harshs0891@gmail.com",
-  resumePdfPath: "/resume/Harsh_Kumar_Singh_Resume.pdf",
+  resumePdfPath: "https://drive.google.com/file/d/1Lt5m1UYgJLaWPGqhNVfiKd5J_rOQU6QT/view?usp=drive_link", // <-- Updated Google Drive URL
   eyebrowBadge: "SOFTWARE ENGINEER @ PAYPAL · IIIT LUCKNOW '26",
   heroHeadline: "Engineering High-Throughput Data Systems & Full-Stack Products.",
   heroSubheadline:
